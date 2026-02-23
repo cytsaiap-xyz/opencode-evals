@@ -1,0 +1,18 @@
+{
+  "name": "eval-02-nextjs-api-route",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "test": "npx vitest run"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/react": "^19.0.0",
+    "vitest": "^3.1.0"
+  }
+}

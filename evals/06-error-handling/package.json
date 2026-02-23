@@ -1,0 +1,11 @@
+{
+  "name": "eval-06-error-handling",
+  "private": true,
+  "scripts": {
+    "test": "npx vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vitest": "^3.1.0"
+  }
+}
