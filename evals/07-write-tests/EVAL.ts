@@ -41,6 +41,6 @@ test('test file covers unique', () => {
 
 test('tests actually pass when run', () => {
   // Run only the user's math.test.ts, not the EVAL.ts
-  const result = execSync('npx vitest run math.test.ts', { cwd: __dirname, encoding: 'utf-8', stdio: 'pipe' });
+  const result = execSync('npx vitest run --config vitest.math.config.ts math.test.ts', { cwd: __dirname, encoding: 'utf-8', stdio: 'pipe' });
   expect(result).toMatch(/pass/i);
 });

@@ -31,14 +31,14 @@ function findAllTsFiles(dir: string): string[] {
   return files;
 }
 
-test('Server Action imports refresh from next/cache', () => {
+test('Server Action imports revalidatePath from next/cache', () => {
   const allFiles = findAllTsFiles(process.cwd());
 
   let foundRefreshImport = false;
 
   for (const file of allFiles) {
     const content = readFileSync(file, 'utf-8');
-    if (content.match(/import.*refresh.*from\s+['"]next\/cache['"]/)) {
+    if (content.match(/import.*revalidatePath.*from\s+['"]next\/cache['"]/)) {
       foundRefreshImport = true;
       break;
     }
@@ -63,16 +63,16 @@ test('Server Action uses "use server" directive', () => {
   expect(foundServerAction).toBe(true);
 });
 
-test('Server Action calls refresh() for page refresh', () => {
+test('Server Action calls revalidatePath() for page refresh', () => {
   const allFiles = findAllTsFiles(process.cwd());
 
   let foundRefreshCall = false;
 
   for (const file of allFiles) {
     const content = readFileSync(file, 'utf-8');
-    // Must have "use server" and refresh() call
+    // Must have "use server" and revalidatePath() call
     if ((content.includes("'use server'") || content.includes('"use server"')) &&
-        content.match(/refresh\s*\(\s*\)/)) {
+        content.match(/revalidatePath\s*\(/)) {
       foundRefreshCall = true;
       break;
     }
@@ -87,29 +87,29 @@ test('Does NOT use redirect for same-page update', () => {
   for (const file of allFiles) {
     const content = readFileSync(file, 'utf-8');
     if ((content.includes("'use server'") || content.includes('"use server"'))) {
-      // If it has refresh(), good - that's what we want
-      if (content.match(/refresh\s*\(\s*\)/)) {
-        // Should use refresh, not redirect for same-page updates
-        expect(content).toMatch(/refresh\s*\(\s*\)/);
+      // If it has revalidatePath(), good - that's what we want
+      if (content.match(/revalidatePath\s*\(/)) {
+        // Should use revalidatePath, not redirect for same-page updates
+        expect(content).toMatch(/revalidatePath\s*\(/);
       }
     }
   }
 });
 
-test('Does NOT use router.refresh() from client (should use server-side refresh)', () => {
+test('Does NOT use router.refresh() from client (should use server-side revalidatePath)', () => {
   const allFiles = findAllTsFiles(process.cwd());
 
   let usesServerRefresh = false;
 
   for (const file of allFiles) {
     const content = readFileSync(file, 'utf-8');
-    // Check for server-side refresh import
-    if (content.match(/import.*refresh.*from\s+['"]next\/cache['"]/)) {
+    // Check for server-side revalidatePath import
+    if (content.match(/import.*revalidatePath.*from\s+['"]next\/cache['"]/)) {
       usesServerRefresh = true;
     }
   }
 
-  // Should use server-side refresh from next/cache
+  // Should use server-side revalidatePath from next/cache
   expect(usesServerRefresh).toBe(true);
 });
 

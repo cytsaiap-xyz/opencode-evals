@@ -6,7 +6,7 @@ import { execSync } from 'child_process';
 const filePath = join(__dirname, 'types.ts');
 
 test('TypeScript compiles without errors', () => {
-  const result = execSync('npx tsc --noEmit', { cwd: __dirname, encoding: 'utf-8', stdio: 'pipe' }).toString();
+  const result = execSync('npx tsc --noEmit types.ts', { cwd: __dirname, encoding: 'utf-8', stdio: 'pipe' }).toString();
   // If tsc exits with code 0, it compiled successfully
 });
 

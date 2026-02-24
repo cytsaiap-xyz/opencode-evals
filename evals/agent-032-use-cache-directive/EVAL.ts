@@ -82,8 +82,8 @@ test('Does NOT use deprecated caching patterns', () => {
     // Should NOT use old fetch caching options
     expect(content).not.toMatch(/next\s*:\s*\{\s*revalidate/);
 
-    // Should NOT use unstable_cache
-    expect(content).not.toMatch(/unstable_cache/);
+    // Should NOT use unstable_cache() function (but unstable_cacheLife/unstable_cacheTag are OK)
+    expect(content).not.toMatch(/unstable_cache\s*\(/);
   }
 
   const configPath = join(process.cwd(), 'next.config.ts');
