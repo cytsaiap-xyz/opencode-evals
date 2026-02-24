@@ -90,20 +90,22 @@ Results are saved as JSON to `results/`.
 | 024 avoid-redundant-usestate | ✅ | — | ✅ | ✅ | ✅ |
 | 025 prefer-next-link | ✅ | — | ✅ | ✅ | ✅ |
 | 026 no-serial-await | ✅ | — | ✅ | ✅ | ✅ |
-| 027 prefer-next-image | ✅ | — | — | ✅ | ✅ |
-| 028 prefer-next-font | ❌ | — | — | ✅ | ✅ |
-| 029 use-cache-directive | ❌ | — | — | ✅ | ❌ |
-| 030 app-router-migration-hard | ❌ | — | — | ✅ | ✅ |
-| 031 proxy-middleware | ❌ | — | — | ❌ | ❌ |
-| 032 use-cache-directive (v2) | ❌ | — | — | ❌ | ❌ |
-| 033 forbidden-auth | ✅ | — | — | ✅ | ✅ |
-| 034 async-cookies | ✅ | — | — | ✅ | ✅ |
-| 035 connection-dynamic | ❌ | — | — | ✅ | ✅ |
-| 036 after-response | ✅ | — | — | ❌ | ❌ |
-| 037 updatetag-cache | ✅ | — | — | ✅ | ✅ |
-| 038 refresh-settings | ❌ | — | — | ❌ | ❌ |
-| 039 indirect-proxy | ❌ | — | — | ✅ | ❌ |
+| 027 prefer-next-image | ✅ | — | ✅ | ✅ | ✅ |
+| 028 prefer-next-font | ❌ | — | ❌ | ✅ | ✅ |
+| 029 use-cache-directive | ❌ | — | ❌ | ✅ | ❌ |
+| 030 app-router-migration-hard | ❌ | — | ❌ | ✅ | ✅ |
+| 031 proxy-middleware | ❌ | — | ❌ | ❌ | ❌ |
+| 032 use-cache-directive (v2) | ❌ | — | ❌ | ❌ | ❌ |
+| 033 forbidden-auth | ✅ | — | ✅ | ✅ | ✅ |
+| 034 async-cookies | ✅ | — | ✅ | ✅ | ✅ |
+| 035 connection-dynamic | ❌ | — | ❌ | ✅ | ✅ |
+| 036 after-response | ✅ | — | ✅ | ❌ | ❌ |
+| 037 updatetag-cache | ✅ | — | ❌ | ✅ | ✅ |
+| 038 refresh-settings | ❌ | — | ❌ | ❌ | ❌ |
+| 039 indirect-proxy | ❌ | — | ❌ | ✅ | ❌ |
 | | | | | | |
-| **Total** | **16/27 (59%)** | **6/9 (67%)** | **10/14 (71%)** | **21/27 (78%)** | **19/27 (70%)** |
+| **Total** | **16/27 (59%)** | **6/9 (67%)** | **14/27 (52%)** | **21/27 (78%)** | **19/27 (70%)** |
 
-✅ = Pass · ❌ = Fail · — = Not tested
+> ✅ = Pass · ❌ = Fail · — = Not tested
+>
+> **Note:** Evals 03, 07, 032, 038 had test bugs that caused false failures across all models. These have been [fixed](https://github.com/cytsaiap-xyz/opencode-evals/commit/949bed2). Results above reflect the original (pre-fix) runs.
