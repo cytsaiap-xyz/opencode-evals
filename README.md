@@ -71,3 +71,39 @@ Results are saved as JSON to `results/`.
 | 037 | **updatetag-cache** | Invalidate cache after creating a post using `updateTag` (not `revalidateTag`) to guarantee zero stale reads. |
 | 038 | **refresh-settings** | Refresh the current page after a server action using `refresh()` from `next/cache` instead of `redirect()`. |
 | 039 | **indirect-proxy** | Infer that "log every request" requires a Next.js 16 `proxy.ts` file from a deliberately vague prompt. |
+
+## Results
+
+| Eval | MiniMax M2.5 | GLM-5 | Kimi K2.5 | Claude Opus | Claude Sonnet |
+|------|:---:|:---:|:---:|:---:|:---:|
+| 01 fix-bug-off-by-one | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 02 nextjs-api-route | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 03 typescript-type-safety | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 04 react-component-creation | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 05 data-transformation | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 06 error-handling | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 07 write-tests | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 000 app-router-migration-simple | ✅ | ✅ | ✅ | ✅ | ✅ |
+| 021 avoid-fetch-in-effect | ✅ | ❌ | ❌ | ✅ | ✅ |
+| 022 prefer-server-actions | ❌ | — | ❌ | ✅ | ✅ |
+| 023 avoid-getserversideprops | ✅ | — | ✅ | ✅ | ✅ |
+| 024 avoid-redundant-usestate | ✅ | — | ✅ | ✅ | ✅ |
+| 025 prefer-next-link | ✅ | — | ✅ | ✅ | ✅ |
+| 026 no-serial-await | ✅ | — | ✅ | ✅ | ✅ |
+| 027 prefer-next-image | ✅ | — | — | ✅ | ✅ |
+| 028 prefer-next-font | ❌ | — | — | ✅ | ✅ |
+| 029 use-cache-directive | ❌ | — | — | ✅ | ❌ |
+| 030 app-router-migration-hard | ❌ | — | — | ✅ | ✅ |
+| 031 proxy-middleware | ❌ | — | — | ❌ | ❌ |
+| 032 use-cache-directive (v2) | ❌ | — | — | ❌ | ❌ |
+| 033 forbidden-auth | ✅ | — | — | ✅ | ✅ |
+| 034 async-cookies | ✅ | — | — | ✅ | ✅ |
+| 035 connection-dynamic | ❌ | — | — | ✅ | ✅ |
+| 036 after-response | ✅ | — | — | ❌ | ❌ |
+| 037 updatetag-cache | ✅ | — | — | ✅ | ✅ |
+| 038 refresh-settings | ❌ | — | — | ❌ | ❌ |
+| 039 indirect-proxy | ❌ | — | — | ✅ | ❌ |
+| | | | | | |
+| **Total** | **16/27 (59%)** | **6/9 (67%)** | **10/14 (71%)** | **21/27 (78%)** | **19/27 (70%)** |
+
+✅ = Pass · ❌ = Fail · — = Not tested
